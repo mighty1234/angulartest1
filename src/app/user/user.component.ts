@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,11 +6,14 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./user.component.scss']
 
 })
-export  class UserComponent {
+export  class UserComponent   implements  OnInit {
 
   @Input() user;
   isMarked = false;
+  ngOnInit() {
 
+    console.log('userCompinentWork');
+  }
   OnClick() {
  this.isMarked = true;
 

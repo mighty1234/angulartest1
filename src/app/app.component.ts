@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsersService} from './users.service';
 import {MapService} from './map.service';
 
@@ -8,20 +8,24 @@ import {MapService} from './map.service';
   styleUrls: ['./app.component.scss'],
   providers: [UsersService]
 })
-export class AppComponent {
+export class AppComponent implements  OnInit {
   users = [];
-  location =[];
-  searchStr = '' ;
+  events = [];
+  location = [];
+  searchStr = '';
+  curentTab = 1;
+
   constructor(private userService: UsersService) {
-   // this.users = this.userService.users;
+    // this.users = this.userService.users;
   }
-    ngOnInit() {
-    this.userService.getUsers().subscribe(users => {
-      this.users = users;
-    });
+
+  ngOnInit() {
+   this.users = this.userService.users;
+   // this.userService.getUsers();
+    }
+
 
   }
 
-}
 
 
